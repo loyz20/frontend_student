@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_student/screens/attendance_screen.dart';
 import 'package:frontend_student/screens/login_screen.dart';
 import 'package:frontend_student/screens/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: startScreen,
+      home: const AttendanceScreen(),
     );
   }
 }

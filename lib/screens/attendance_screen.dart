@@ -53,6 +53,7 @@ class AttendanceScreenState extends State<AttendanceScreen> {
     setState(() {
       if (pickedFile != null) {
         _image = File(pickedFile.path);
+        _submitAttendance();
       } else {
         debugPrint('No image selected.');
       }
@@ -107,30 +108,6 @@ class AttendanceScreenState extends State<AttendanceScreen> {
               onPressed: _takeSelfie,
               icon: const Icon(Icons.camera_alt),
               label: const Text('Ambil Foto Selfie'),
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size.fromHeight(50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            _image != null
-                ? Container(
-                    height: 200,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey.shade300),
-                    ),
-                    child: Image.file(_image!, fit: BoxFit.cover),
-                  )
-                : const Center(child: Text('Belum ada foto')),
-            const SizedBox(height: 20),
-            ElevatedButton.icon(
-              onPressed: _submitAttendance,
-              icon: const Icon(Icons.check),
-              label: const Text('Absensi'),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50),
                 shape: RoundedRectangleBorder(
