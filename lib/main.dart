@@ -1,31 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:frontend_student/screens/attendance_screen.dart';
-import 'package:frontend_student/screens/login_screen.dart';
-import 'package:frontend_student/screens/main_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:frontend_student/common/theme/app_theme.dart';
+import 'package:frontend_student/features/splash/presentation/pages/splash_page.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  
-  final prefs = await SharedPreferences.getInstance();
-  final token = prefs.getString('auth_token');
-
-  runApp(MyApp(startScreen: token != null ? const MainScreen() : const LoginScreen()));
+void main() {
+  runApp(const SchoolApp());
 }
 
-class MyApp extends StatelessWidget {
-  final Widget startScreen;
-
-  const MyApp({super.key, required this.startScreen});
+class SchoolApp extends StatelessWidget {
+  const SchoolApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const AttendanceScreen(),
+      title: 'School App',
+      theme: AppTheme.lightTheme,
+      home: const SplashPage(),
     );
   }
 }
