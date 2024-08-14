@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_student/common/constants/colors.dart';
 
+<<<<<<< HEAD
 // ignore: non_constant_identifier_names
 Widget MenuIcon(IconData icon, String label, BuildContext context) {
+=======
+Widget menuicon(IconData icon, String label, BuildContext context) {
+>>>>>>> 294d47eccacab1a074554c93cdffb6a4942d8f05
     return GestureDetector(
       onTap: () {
         ScaffoldMessenger.of(context).showSnackBar(
