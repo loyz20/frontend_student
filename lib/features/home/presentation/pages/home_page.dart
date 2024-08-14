@@ -1,45 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:frontend_student/features/home/presentation/widgets/custom_carousel.dart';
-import 'package:frontend_student/features/home/presentation/widgets/menu_icon.dart';
+import 'package:frontend_student/features/home/presentation/widgets/custom_banner.dart';
+import 'package:frontend_student/features/home/presentation/widgets/custom_header.dart';
+import 'package:frontend_student/features/home/presentation/widgets/custom_menu.dart';
+import 'package:frontend_student/features/home/presentation/widgets/student_achievement.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-  
-  static final List<String> imgList = [
-    'https://via.placeholder.com/600x300?text=Slide+1',
-    'https://via.placeholder.com/600x300?text=Slide+2',
-    'https://via.placeholder.com/600x300?text=Slide+3',
-    'https://via.placeholder.com/600x300?text=Slide+4',
-  ];
 
   @override
-  build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
+      appBar: const Header(),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const BannerSection(),
             const SizedBox(height: 16.0),
-            CustomCarousel(imgList: imgList),  // Menggunakan widget CustomCarousel
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MenuGrid(context: context),
+            ),
             const SizedBox(height: 16.0),
-            GridView.count(
-              shrinkWrap: true,
-              crossAxisCount: 4, // Jumlah kolom
-              crossAxisSpacing: 16.0, // Jarak antar kolom
-              mainAxisSpacing: 16.0, // Jarak antar baris
-              padding: const EdgeInsets.all(16.0),
-              children: [
-                MenuIcon(Icons.check, 'Attendance', context),
-                MenuIcon(Icons.book, 'Exams', context),
-                MenuIcon(Icons.school, 'Materials', context),
-                MenuIcon(Icons.library_books, 'Library', context),
-            ],
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              child: AchievementsAndViolations(),
+            ),
+          ],
         ),
-          ]
       ),
-    )
     );
   }
 }

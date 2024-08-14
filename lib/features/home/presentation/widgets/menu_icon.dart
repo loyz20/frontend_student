@@ -1,38 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:frontend_student/common/constants/colors.dart';
 
-// ignore: non_constant_identifier_names
-Widget MenuIcon(IconData icon, String label, BuildContext context) {
+class MenuIcon extends StatelessWidget {
+  final IconData icon;
+  final String tooltipMessage;
+  final VoidCallback onTap;
+
+  const MenuIcon({
+    super.key,
+    required this.icon,
+    required this.tooltipMessage,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('$label clicked')),
-        );
-        // Aksi lain dapat ditambahkan di sini
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10.0),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 5.0,
-              spreadRadius: 1.0,
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 20.0, color: AppColors.primary),
-            const SizedBox(height: 10.0),
-            Text(
-              label,
-              style: const TextStyle(fontSize: 9.0, fontWeight: FontWeight.w100),
-            ),
-          ],
+      onTap: onTap,
+      child: Tooltip(
+        message: tooltipMessage,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 8.0,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                size: 36.0,
+                color: Theme.of(context).primaryColor,
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
+}
