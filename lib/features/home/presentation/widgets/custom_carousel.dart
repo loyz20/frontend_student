@@ -20,11 +20,7 @@ class CustomCarousel extends StatelessWidget {
         viewportFraction: 0.8,
       ),
       items: imgList.map((item) => Center(
-<<<<<<< HEAD
         child: Image.network(item, fit: BoxFit.cover),
-=======
-        child: Image.network(item, fit: BoxFit.cover, width: 1000),
->>>>>>> 294d47eccacab1a074554c93cdffb6a4942d8f05
       )).toList(),
     );
   }

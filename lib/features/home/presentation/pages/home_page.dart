@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
@@ -35,11 +35,11 @@ class HomePage extends StatelessWidget {
                 MenuIcon(Icons.book, 'Exams', context),
                 MenuIcon(Icons.school, 'Materials', context),
                 MenuIcon(Icons.library_books, 'Library', context),
-              ],
-            ),
-          ],
+            ],
         ),
+          ]
       ),
+    )
     );
   }
 }
