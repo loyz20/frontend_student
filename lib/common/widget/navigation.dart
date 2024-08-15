@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_student/features/auth/presentation/pages/login_page.dart';
+import 'package:frontend_student/features/auth/presentation/pages/register_page.dart';
 import 'package:frontend_student/features/home/presentation/pages/home_page.dart';
 import 'package:frontend_student/features/tab_navigation/widgets/bottom_nav_bar.dart';
 
@@ -23,3 +24,11 @@ void navigateToTab(BuildContext context) {
     MaterialPageRoute(builder: (context) => const BottomNavBar()),
   );
 }
+
+void navigateToRegister(BuildContext context) {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => const RegisterPage()),
+  );
+}
+
