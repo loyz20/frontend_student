@@ -4,10 +4,10 @@ class ProgressOverview extends StatefulWidget {
   const ProgressOverview({super.key});
 
   @override
-  _ProgressOverviewState createState() => _ProgressOverviewState();
+  ProgressOverviewState createState() => ProgressOverviewState();
 }
 
-class _ProgressOverviewState extends State<ProgressOverview> {
+class ProgressOverviewState extends State<ProgressOverview> {
   String _selectedMonth = 'Agustus'; // Bulan default yang dipilih
   final List<String> _months = [
     'Januari',

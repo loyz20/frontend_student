@@ -11,15 +11,19 @@ class AttendancePage extends StatefulWidget {
   const AttendancePage({super.key});
 
   @override
-  _AttendancePageState createState() => _AttendancePageState();
+  AttendancePageState createState() => AttendancePageState();
 }
 
-class _AttendancePageState extends State<AttendancePage> {
+class AttendancePageState extends State<AttendancePage> {
   final ImagePicker _picker = ImagePicker();
   XFile? _image;
   Position? _currentPosition;
   double _distanceToLocation = 0.0;
   final List<AttendanceRecord> _attendanceRecords = [];
+  final LocationSettings locationSettings = const LocationSettings(
+  accuracy: LocationAccuracy.high,
+  distanceFilter: 100,
+);
 
   final Position _schoolLocation = Position(
     latitude: 37.7749,
@@ -40,9 +44,7 @@ class _AttendancePageState extends State<AttendancePage> {
   }
 
   Future<void> _getCurrentLocation() async {
-    Position position = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high,
-    );
+    Position position = await Geolocator.getCurrentPosition(locationSettings: locationSettings);
     setState(() {
       _currentPosition = position;
       if (_currentPosition != null) {
@@ -78,6 +80,7 @@ class _AttendancePageState extends State<AttendancePage> {
       _attendanceRecords.add(newRecord);
     });
 
+    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Attendance $type marked successfully!')),
     );

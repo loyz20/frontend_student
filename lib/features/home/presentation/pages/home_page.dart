@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend_student/features/home/presentation/widgets/custom_banner.dart';
 import 'package:frontend_student/features/home/presentation/widgets/custom_header.dart';
 import 'package:frontend_student/features/home/presentation/widgets/custom_menu.dart';
-import 'package:frontend_student/features/home/presentation/widgets/progress_overview.dart';
+import 'package:frontend_student/features/home/presentation/widgets/recent_activity.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
               child: MenuGrid(context: context),
             ),
             const SizedBox(height: 16.0),
-            const ProgressOverview(),  // Menambahkan Progress Overview di sini
+            const RecentActivities(),  // Menambahkan Progress Overview di sini
           ],
         ),
       ),

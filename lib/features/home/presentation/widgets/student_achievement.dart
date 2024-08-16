@@ -5,10 +5,10 @@ class AchievementsAndViolations extends StatefulWidget {
   const AchievementsAndViolations({super.key});
 
   @override
-  _AchievementsAndViolationsState createState() => _AchievementsAndViolationsState();
+  AchievementsAndViolationsState createState() => AchievementsAndViolationsState();
 }
 
-class _AchievementsAndViolationsState extends State<AchievementsAndViolations> {
+class AchievementsAndViolationsState extends State<AchievementsAndViolations> {
   final int _itemsPerPage = 3; // Number of items per page
   int _currentPage = 1;
   final List<String> _achievements = List.generate(10, (index) => 'Achievement ${index + 1}');
