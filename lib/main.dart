@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend_student/common/theme/app_theme.dart';
-import 'package:frontend_student/features/splash/presentation/pages/splash_page.dart';
+import 'package:frontend_student/src/screens/splash_screen.dart';
+import 'package:frontend_student/src/themes/app_theme.dart';
 
 void main() {
   runApp(const SchoolApp());
@@ -14,7 +14,7 @@ class SchoolApp extends StatelessWidget {
     return MaterialApp(
       title: 'School App',
       theme: AppTheme.lightTheme,
-      home: const SplashPage(),
+      home: const SplashScreen(),
     );
   }
 }
